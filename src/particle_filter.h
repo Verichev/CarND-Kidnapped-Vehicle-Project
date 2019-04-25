@@ -12,16 +12,25 @@
 #include <string>
 #include <vector>
 #include "helper_functions.h"
+#include <random>
+using std::normal_distribution;
 
 struct Particle {
   int id;
   double x;
   double y;
   double theta;
-  double weight;
+  long double weight;
   std::vector<int> associations;
   std::vector<double> sense_x;
   std::vector<double> sense_y;
+  friend std::ostream& operator<<(std::ostream& os, const Particle& p) {
+    return os << "Id: " << p.id << std::endl
+    << "x: " << p.x << std::endl
+    << "y: " << p.y << std::endl
+    << "theta: " << p.theta << std::endl
+    << "weight: " << p.weight << std::endl;
+  }
 };
 
 
@@ -63,9 +72,9 @@ class ParticleFilter {
    * @param predicted Vector of predicted landmark observations
    * @param observations Vector of landmark observations
    */
-  void dataAssociation(std::vector<LandmarkObs> predicted, 
-                       std::vector<LandmarkObs>& observations);
-  
+//  void dataAssociation(std::vector<LandmarkObs> predicted,
+//                       std::vector<LandmarkObs>& observations);
+  Map::single_landmark_s dataAssociation(double x, double y, const std::vector<Map::single_landmark_s> &landmarks);
   /**
    * updateWeights Updates the weights for each particle based on the likelihood
    *   of the observed measurements. 
@@ -75,9 +84,11 @@ class ParticleFilter {
    * @param observations Vector of landmark observations
    * @param map Map class containing map landmarks
    */
+
   void updateWeights(double sensor_range, double std_landmark[], 
                      const std::vector<LandmarkObs> &observations,
                      const Map &map_landmarks);
+  long double multiv_prob(long double sig_x, long double sig_y, long double x_obs, long double y_obs, long double mu_x, long double mu_y);
   
   /**
    * resample Resamples from the updated set of particles to form
@@ -112,6 +123,7 @@ class ParticleFilter {
   std::vector<Particle> particles;
 
  private:
+  std::default_random_engine gen;
   // Number of particles to draw
   int num_particles; 
   
@@ -119,7 +131,7 @@ class ParticleFilter {
   bool is_initialized;
   
   // Vector of weights of all particles
-  std::vector<double> weights; 
+  std::vector<long double> weights;
 };
 
 #endif  // PARTICLE_FILTER_H_
