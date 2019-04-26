@@ -6,10 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		D4FA42C1226B378000AB3F1E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4FA42C0226B378000AB3F1E /* main.cpp */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		D4FA42BB226B378000AB3F1E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -24,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		D4FA42BD226B378000AB3F1E /* CarND - Kidnapped vehicle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CarND - Kidnapped vehicle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4FA42C0226B378000AB3F1E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D4FA42C7226B383500AB3F1E /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +37,7 @@
 		D4FA42B4226B378000AB3F1E = {
 			isa = PBXGroup;
 			children = (
-				D4FA42BF226B378000AB3F1E /* CarND - Kidnapped vehicle */,
+				D4FA42C7226B383500AB3F1E /* src */,
 				D4FA42BE226B378000AB3F1E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,14 +48,6 @@
 				D4FA42BD226B378000AB3F1E /* CarND - Kidnapped vehicle */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D4FA42BF226B378000AB3F1E /* CarND - Kidnapped vehicle */ = {
-			isa = PBXGroup;
-			children = (
-				D4FA42C0226B378000AB3F1E /* main.cpp */,
-			);
-			path = "CarND - Kidnapped vehicle";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +106,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4FA42C1226B378000AB3F1E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

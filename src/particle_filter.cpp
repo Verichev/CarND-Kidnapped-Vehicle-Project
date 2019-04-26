@@ -20,7 +20,6 @@
 
 using std::string;
 using std::vector;
-using std::cout;
 using std::normal_distribution;
 
 
@@ -170,10 +169,6 @@ void ParticleFilter::resample() {
     new_particles.push_back(particles[d(gen)]);
   }
   particles = new_particles;
-  cout << std::endl << "after resemple: " << std::endl;
-  for (auto const& c : particles) {
-    std::cout << c << std::endl;
-  }
 }
 
 void ParticleFilter::SetAssociations(Particle& particle,
